@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 10; /* Casi negro */
+  --background-end-rgb: 20, 20, 20;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+    rgb(var(--background-start-rgb));
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Ocultar scrollbar en las categorías pero permitir scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animaciones suaves */
+.animate-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* --- FONDO Y TEXTO BASE --- */
+  .american-body {
+    @apply min-h-screen bg-black text-gray-200 font-sans;
+  }
+
+  /* --- TARJETAS (ESTILO KANBAN Y METRICAS) --- */
+  .american-card {
+    @apply bg-black border border-gray-800 rounded-xl p-4 shadow-sm transition-all;
+  }
+  
+  .american-card-hover {
+    @apply hover:border-gray-600 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  /* --- TIPOGRAFÍA DE IMPACTO --- */
+  .american-title {
+    @apply font-black italic uppercase tracking-tighter text-white;
+  }
+
+  .american-label {
+    @apply text-[10px] font-black uppercase tracking-widest text-gray-500;
+  }
+
+  /* --- BOTONES --- */
+  .american-btn-primary {
+    @apply bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-red-900/20 active:scale-95;
+  }
+
+  .american-btn-secondary {
+    @apply bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold text-xs uppercase px-4 py-2 rounded-lg transition-all;
+  }
+
+  /* --- INPUTS Y FORMULARIOS --- */
+  .american-input {
+    @apply w-full bg-black border border-gray-700 rounded-xl p-3 text-white outline-none focus:border-red-600 transition-colors placeholder:text-gray-600;
+  }
+
+  /* --- CONTENEDORES DE SECCIÓN --- */
+  .american-section-header {
+    @apply p-3 border-b border-gray-800 bg-gray-900/50 flex items-center justify-between rounded-t-xl;
+  }
+
+  /* --- BADGES (MÉTODOS DE PAGO/ENTREGA) --- */
+  .badge-delivery { @apply bg-blue-900/30 text-blue-400 border border-blue-900/50 px-2 py-0.5 rounded text-[10px] font-black uppercase; }
+  .badge-pickup { @apply bg-purple-900/30 text-purple-400 border border-purple-900/50 px-2 py-0.5 rounded text-[10px] font-black uppercase; }
+  .badge-cash { @apply text-green-500 flex items-center gap-1; }
+  .badge-mp { @apply text-sky-400 flex items-center gap-1; }
+}
+/* Ocultar barra de scroll para Chrome, Safari y Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ocultar barra de scroll para IE, Edge y Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
